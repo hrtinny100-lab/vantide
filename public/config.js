@@ -1,7 +1,7 @@
 window.__RUNTIME_CONFIG__ = {
   VITE_ORDERLY_BROKER_ID: "demo",
-  VITE_ORDERLY_BROKER_NAME: "Vantide Perps",
-  VITE_BROKER_EOA_ADDRESS: "",
+  VITE_ORDERLY_BROKER_NAME: "Vantide",
+  VITE_BROKER_EOA_ADDRESS: "0x1cacdf8c0d802e0c65943a729c666b91d6c27346",
   VITE_DISABLE_MAINNET: "false",
   VITE_DISABLE_TESTNET: "false",
   VITE_ORDERLY_MAINNET_CHAINS: "56",
@@ -15,7 +15,7 @@ window.__RUNTIME_CONFIG__ = {
   VITE_DISABLE_SOLANA_WALLETS: "false",
   VITE_WALLETCONNECT_PROJECT_ID: "",
   VITE_APP_NAME: "Vantide",
-  VITE_APP_DESCRIPTION: "Vantide Perp Trading Application",
+  VITE_APP_DESCRIPTION: "Orderly Trading Application",
   VITE_HAS_PRIMARY_LOGO: "false",
   VITE_HAS_SECONDARY_LOGO: "false",
   VITE_ENABLED_MENUS:
@@ -28,7 +28,7 @@ window.__RUNTIME_CONFIG__ = {
   VITE_TWITTER_URL: "",
   VITE_SEO_SITE_NAME: "",
   VITE_SEO_SITE_DESCRIPTION: "",
-  VITE_SEO_SITE_URL: "https://vantide-perps-uehy.vercel.app/",
+  VITE_SEO_SITE_URL: "https://dex.orderly.network/vantide-7708/",
   VITE_SEO_SITE_LANGUAGE: "en",
   VITE_SEO_SITE_LOCALE: "en_US",
   VITE_SEO_TWITTER_HANDLE: "",
