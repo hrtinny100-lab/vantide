@@ -1,0 +1,5 @@
+{
+  "buildCommand": "yarn run build",
+  "outputDirectory": "build/client",
+  "framework": null
+}
