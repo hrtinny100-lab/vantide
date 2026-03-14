@@ -1,0 +1,139 @@
+@import "@orderly.network/ui/dist/styles.css";
+@import "../styles/theme.css";
+@import "../styles/fonts.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* hide trading rewards on mobile */
+.oui-portfolio-page
+  .oui-box.oui-flex.oui-flex-nowrap
+  > div:nth-child(
+    2
+  ).oui-box.oui-flex.oui-justify-start.oui-flex-nowrap.oui-relative {
+  display: none;
+}
+.oui-scaffold-footer-powered-by {
+  display: none !important;
+}
+/* ===== VAULT GRID (3 columns cards) ===== */
+.oui-grid.oui-grid-cols-3.oui-gap-4 {
+  position: relative;
+}
+
+.oui-grid.oui-grid-cols-3.oui-gap-4 > div {
+  filter: blur(8px);
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.oui-grid.oui-grid-cols-3.oui-gap-4 * {
+  color: transparent !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+}
+
+.oui-grid.oui-grid-cols-3.oui-gap-4::after {
+  content: "Coming Soon";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 1rem;
+  z-index: 100;
+}
+
+.oui-flex.oui-flex-col.oui-gap-2:has(
+    > .oui-grid-cols-\[2fr_1fr_1fr_1fr_1fr_1fr_1\.5fr\]
+  ) {
+  position: relative;
+}
+
+.oui-grid-cols-\[2fr_1fr_1fr_1fr_1fr_1fr_1\.5fr\] {
+  filter: blur(8px);
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.oui-grid-cols-\[2fr_1fr_1fr_1fr_1fr_1fr_1\.5fr\] * {
+  color: transparent !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+}
+
+.oui-flex.oui-flex-col.oui-gap-2:has(
+    > .oui-grid-cols-\[2fr_1fr_1fr_1fr_1fr_1fr_1\.5fr\]
+  )::after {
+  content: "Coming Soon";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 1rem;
+  z-index: 100;
+}
+.oui-flex.oui-flex-row.oui-items-center.oui-gap-3 > .oui-flex.oui-gap-1 {
+  margin-left: 50px;
+}
+/* Target the API Keys card */
+#portfolio-apikey-manager {
+  position: relative;
+}
+
+/* Blur only the content (not header) */
+#portfolio-apikey-manager .oui-card-content {
+  filter: blur(8px);
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Make content text transparent */
+#portfolio-apikey-manager .oui-card-content * {
+  color: transparent !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+}
+
+/* Overlay on content only */
+#portfolio-apikey-manager .oui-card-content::after {
+  content: "Coming Soon";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 0.75rem;
+  z-index: 100;
+}
+
+/* Make content relative for overlay positioning */
+#portfolio-apikey-manager .oui-card-content {
+  position: relative;
+}
