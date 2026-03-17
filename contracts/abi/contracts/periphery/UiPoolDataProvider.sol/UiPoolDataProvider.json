@@ -1,0 +1,375 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "contract IAddressesProvider",
+        "name": "addressProvider",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "inputs": [],
+    "name": "ADDRESS_PROVIDER",
+    "outputs": [
+      {
+        "internalType": "contract IAddressesProvider",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract IPool",
+        "name": "pool",
+        "type": "address"
+      },
+      {
+        "internalType": "contract IPoolView",
+        "name": "poolView",
+        "type": "address"
+      },
+      {
+        "internalType": "contract IOrderManager",
+        "name": "orderManager",
+        "type": "address"
+      },
+      {
+        "internalType": "contract IPositionManager",
+        "name": "positionManager",
+        "type": "address"
+      },
+      {
+        "internalType": "contract IRouter",
+        "name": "router",
+        "type": "address"
+      },
+      {
+        "internalType": "contract IFeeCollector",
+        "name": "feeCollector",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "pairIndexes",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "prices",
+        "type": "uint256[]"
+      }
+    ],
+    "name": "getPairsData",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "pairIndex",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "indexToken",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "stableToken",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "pairToken",
+            "type": "address"
+          },
+          {
+            "internalType": "bool",
+            "name": "increasePositionIsEnabled",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "decreasePositionIsEnabled",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "orderIsEnabled",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "addLiquidityIsEnabled",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "removeLiquidityIsEnabled",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "enable",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "kOfSwap",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "expectIndexTokenP",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "maxUnbalancedP",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "unbalancedDiscountRate",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "addLpFeeP",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "removeLpFeeP",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "minLeverage",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "maxLeverage",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "minTradeAmount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "maxTradeAmount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "maxPositionAmount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "maintainMarginRate",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "priceSlipP",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "maxPriceDeviationP",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "takerFee",
+            "type": "uint256"
+          },
+          {
+            "internalType": "int256",
+            "name": "makerFee",
+            "type": "int256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "lpFeeDistributeP",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "stakingFeeDistributeP",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "keeperFeeDistributeP",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "indexTotalAmount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "indexReservedAmount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "stableTotalAmount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "stableReservedAmount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "poolAvgPrice",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "longTracker",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "shortTracker",
+            "type": "uint256"
+          },
+          {
+            "internalType": "int256",
+            "name": "currentFundingRate",
+            "type": "int256"
+          },
+          {
+            "internalType": "int256",
+            "name": "nextFundingRate",
+            "type": "int256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "nextFundingRateUpdateTime",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "lpPrice",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "lpTotalSupply",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "maxRemoveLp",
+            "type": "uint256"
+          },
+          {
+            "components": [
+              {
+                "internalType": "enum TradingTypes.NetworkFeePaymentType",
+                "name": "paymentType",
+                "type": "uint8"
+              },
+              {
+                "internalType": "uint256",
+                "name": "basicNetworkFee",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "discountThreshold",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "discountedNetworkFee",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct IUiPoolDataProvider.NetworkFeeData[]",
+            "name": "networkFees",
+            "type": "tuple[]"
+          }
+        ],
+        "internalType": "struct IUiPoolDataProvider.PairData[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract IERC20Metadata[]",
+        "name": "tokens",
+        "type": "address[]"
+      },
+      {
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      }
+    ],
+    "name": "getUserTokenData",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "token",
+            "type": "address"
+          },
+          {
+            "internalType": "string",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "symbol",
+            "type": "string"
+          },
+          {
+            "internalType": "uint8",
+            "name": "decimals",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint256",
+            "name": "totalSupply",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "balance",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct IUiPoolDataProvider.UserTokenData[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]

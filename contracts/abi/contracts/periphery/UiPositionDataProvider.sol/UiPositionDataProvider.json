@@ -1,0 +1,301 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "contract IAddressesProvider",
+        "name": "addressProvider",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "inputs": [],
+    "name": "ADDRESS_PROVIDER",
+    "outputs": [
+      {
+        "internalType": "contract IAddressesProvider",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract IPool",
+        "name": "pool",
+        "type": "address"
+      },
+      {
+        "internalType": "contract IPoolView",
+        "name": "poolView",
+        "type": "address"
+      },
+      {
+        "internalType": "contract IPositionManager",
+        "name": "positionManager",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "pairIndexes",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "prices",
+        "type": "uint256[]"
+      }
+    ],
+    "name": "getPositionsData",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "pairIndex",
+            "type": "uint256"
+          },
+          {
+            "internalType": "int256",
+            "name": "exposedPositions",
+            "type": "int256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "longTracker",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "shortTracker",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "indexTotalAmount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "indexReservedAmount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "stableTotalAmount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "stableReservedAmount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "poolAvgPrice",
+            "type": "uint256"
+          },
+          {
+            "internalType": "int256",
+            "name": "currentFundingRate",
+            "type": "int256"
+          },
+          {
+            "internalType": "int256",
+            "name": "nextFundingRate",
+            "type": "int256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "nextFundingRateUpdateTime",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "lpPrice",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "lpTotalSupply",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "longLiquidity",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "shortLiquidity",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct IUiPositionDataProvider.PositionData[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract IPositionManager",
+        "name": "positionManager",
+        "type": "address"
+      },
+      {
+        "internalType": "bytes32[]",
+        "name": "positionKeys",
+        "type": "bytes32[]"
+      }
+    ],
+    "name": "getUserPositionData",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "account",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "pairIndex",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "isLong",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "collateral",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "positionAmount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "averagePrice",
+            "type": "uint256"
+          },
+          {
+            "internalType": "int256",
+            "name": "fundingFeeTracker",
+            "type": "int256"
+          }
+        ],
+        "internalType": "struct IUiPositionDataProvider.UserPositionData[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract IPositionManager",
+        "name": "positionManager",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      },
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "pairIndex",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "price",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct UiPositionDataProvider.PairPrice[]",
+        "name": "pairs",
+        "type": "tuple[]"
+      }
+    ],
+    "name": "getUserPositionDataV2",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "bytes32",
+            "name": "key",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "address",
+            "name": "account",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "pairIndex",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "isLong",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "collateral",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "positionAmount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "averagePrice",
+            "type": "uint256"
+          },
+          {
+            "internalType": "int256",
+            "name": "fundingFeeTracker",
+            "type": "int256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "positionCloseTradingFee",
+            "type": "uint256"
+          },
+          {
+            "internalType": "int256",
+            "name": "positionFundingFee",
+            "type": "int256"
+          }
+        ],
+        "internalType": "struct IUiPositionDataProvider.UserPositionDataV2[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]
