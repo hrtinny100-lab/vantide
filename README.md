@@ -1,2 +1,0 @@
-# vantide
-vantide-perps-exchange
