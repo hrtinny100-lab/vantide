@@ -15,7 +15,7 @@ window.__RUNTIME_CONFIG__ = {
   VITE_DISABLE_SOLANA_WALLETS: "false",
   VITE_WALLETCONNECT_PROJECT_ID: "",
   VITE_APP_NAME: "Vantide",
-  VITE_APP_DESCRIPTION: "Orderly Trading Application",
+  VITE_APP_DESCRIPTION: "Vantide Trading Application",
   VITE_HAS_PRIMARY_LOGO: "false",
   VITE_HAS_SECONDARY_LOGO: "false",
   VITE_ENABLED_MENUS:
