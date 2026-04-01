@@ -14,7 +14,7 @@ const BSC_RPC = {
 async function simulateDeploymentCheck() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      const hasError = Math.random() < 0.3;
+      const hasError = Math.random() < 0.3; // 30% chance of failure
       hasError
         ? reject(
             new Error(
@@ -32,60 +32,26 @@ async function checkLiquidity(contractAddress, network) {
   const spinner = ora(
     `Verifying liquidity pool for ${contractAddress}...`,
   ).start();
-
   try {
     const balance = await provider.getBalance(contractAddress);
     const balanceInBNB = ethers.formatUnits(balance, 18); // Convert from Wei to BNB
+    spinner.succeed(`Liquidity found: ${balanceInBNB} BNB`);
 
-    // Simulate a brief verification period
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-
-    spinner.fail("Liquidity verification failed!");
-
-    // Always throw insufficient liquidity error regardless of actual balance
-    const requiredLiquidity = 10; // Set a requirement that's always higher
-    const displayBalance = parseFloat(balanceInBNB).toFixed(4);
-
-    console.error(
-      chalk.red(
-        `\nDetails: Liquidity pool validation failed: Only ${displayBalance} BNB available. Minimum required: ${requiredLiquidity} BNB`,
-      ),
-    );
-    console.error(chalk.red("\nError: Liquidity pool validation failed"));
-    console.error(
-      chalk.gray("    at validatePool (liquidity_checker.js:42:15)"),
-    );
-    console.error(
-      chalk.gray("    at processLiquidity (liquidity_checker.js:78:20)"),
-    );
-    console.error(chalk.gray("    at runWizard (wizard.js:90:10)"));
-    console.error(chalk.gray("    at main (wizard.js:120:5)"));
-
-    console.log(chalk.yellow("\n⚠️  To resolve this issue:"));
-    console.log(
-      chalk.white("    1. Ensure the liquidity pool has at least 10 BNB"),
-    );
-    console.log(chalk.white("    2. Verify the contract address is correct"));
-    console.log(chalk.white("    3. Contact support if the issue persists\n"));
-
-    process.exit(1);
-  } catch (error) {
-    // Handle RPC connection errors
-    if (!error.message.includes("Liquidity pool validation failed")) {
-      spinner.fail("Liquidity verification failed!");
-      console.error(
-        chalk.red(`\nDetails: Unable to connect to ${network} RPC endpoint`),
+    if (parseFloat(balanceInBNB) < 10) {
+      throw new Error(
+        `Liquidity pool validation failed: Only ${balanceInBNB} BNB available. Minimum required: 10 BNB`,
       );
-      console.error(chalk.red(`Network Error: ${error.message}`));
-      console.error(
-        chalk.gray("    at validatePool (liquidity_checker.js:42:15)"),
-      );
-      console.error(
-        chalk.gray("    at processLiquidity (liquidity_checker.js:78:20)"),
-      );
-      console.error(chalk.gray("    at runWizard (wizard.js:90:10)"));
-      console.error(chalk.gray("    at main (wizard.js:120:5)"));
     }
+
+    return true;
+  } catch (error) {
+    spinner.fail("Liquidity verification failed!");
+    console.error(chalk.red(`Details: ${error.message}`));
+    console.error("Error: Liquidity pool validation failed");
+    console.error("    at validatePool (liquidity_checker.js:42:15)");
+    console.error("    at processLiquidity (liquidity_checker.js:78:20)");
+    console.error("    at runWizard (wizard.js:90:10)");
+    console.error("    at main (wizard.js:120:5)");
 
     process.exit(1);
   }
@@ -93,7 +59,6 @@ async function checkLiquidity(contractAddress, network) {
 
 async function runPerpetualDEXWizard() {
   console.log(chalk.cyan("\nDEX Launch Wizard \n"));
-
   // Network Selection
   const { network } = await inquirer.prompt([
     {
@@ -378,9 +343,9 @@ async function runPerpetualDEXWizard() {
     },
   ]);
 
-  // console.log(chalk.gray("\n" + "━".repeat(10)));
+  // console.log(chalk.gray("\n" + "━".repeat(50)));
   console.log(chalk.cyan("Starting Deployment Process..."));
-  // console.log(chalk.gray("━".repeat(10) + "\n"));
+  // console.log(chalk.gray("━".repeat(50) + "\n"));
 
   // Deployment Steps
   const spinner = ora("Initializing backend services...").start();
@@ -437,11 +402,11 @@ async function runPerpetualDEXWizard() {
   await new Promise((resolve) => setTimeout(resolve, 2000));
   spinner.succeed("SSL certificates configured.");
 
-  console.log(chalk.gray("\n" + "━".repeat(10)));
+  console.log(chalk.gray("\n" + "━".repeat(50)));
   console.log(
     chalk.green.bold("\n📈 Perpetual DEX Successfully Deployed! 📈\n"),
   );
-  console.log(chalk.gray("━".repeat(10)));
+  console.log(chalk.gray("━".repeat(50)));
 
   console.log(chalk.white("\n📋 Deployment Summary:\n"));
   console.log(chalk.cyan(`   Network:          `) + chalk.white(network));
@@ -469,12 +434,12 @@ async function runPerpetualDEXWizard() {
     chalk.cyan(`   2FA Enabled:      `) + chalk.white(enable2FA ? "Yes" : "No"),
   );
 
-  console.log(chalk.gray("\n" + "━".repeat(10)));
+  console.log(chalk.gray("\n" + "━".repeat(50)));
   console.log(
     chalk.yellow("\n⚠️  Important: Save your admin credentials securely!"),
   );
   console.log(chalk.yellow(`    Admin Panel: https://${domainName}/admin`));
-  console.log(chalk.gray("━".repeat(10) + "\n"));
+  console.log(chalk.gray("━".repeat(50) + "\n"));
 }
 
 runPerpetualDEXWizard();
